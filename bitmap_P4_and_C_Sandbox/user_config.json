@@ -1,0 +1,32 @@
+{
+	"doc": "Table configurations for bitmap.p4",
+	"tables" :  
+		{
+			"forward" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_drop" }
+				},
+				"rules" : [
+					{
+						"name" : "rule_0",
+						"match" : {
+							"standard_metadata.ingress_port" : { "value" : "p0" }
+						},
+						"action" : {
+							"type" : "do_forward",
+							"data" : {
+								"port" : { "value" : "v0.0" }
+							}
+						}
+					}
+				]
+			},
+			"bitmap_finder" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_bitmap_finder" }
+				}
+			}
+		}
+}

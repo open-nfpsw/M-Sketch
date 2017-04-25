@@ -1,0 +1,57 @@
+{
+	"doc": "Table configurations for hh.p4",
+	"tables" : 
+		{
+			"forward" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_drop" }
+				},
+				"rules" : [
+					{
+						"name" : "rule_0",
+						"match" : {
+							"standard_metadata.ingress_port" : { "value" : "p0" }
+						},
+						"action" : {
+							"type" : "do_forward",
+							"data" : {
+								"port" : { "value" : "v0.0" }
+							}
+						}
+					},
+					{
+						"name" : "rule_1",
+						"match" : {
+							"standard_metadata.ingress_port" : { "value" : "v0.1" }
+						},
+						"action" : {
+							"type" : "do_forward",
+							"data" : {
+								"port" : { "value" : "v0.2" }
+							}
+						}
+					}
+				]
+			},
+			"hh_finder" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_hh_finder" }
+				}
+			},
+			"start_tstamp" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_start_tstamp" }
+				}
+			},
+			"end_tstamp" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_end_tstamp" }
+				}
+			}
+		}
+	
+}

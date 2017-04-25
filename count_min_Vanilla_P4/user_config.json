@@ -1,0 +1,93 @@
+{
+	"doc": "Table configurations for hh.p4",
+	"tables" : 
+		{
+			"forward" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_drop" }
+				},
+				"rules" : [
+					{
+						"name" : "rule_0",
+						"match" : {
+							"standard_metadata.ingress_port" : { "value" : "p0" }
+						},
+						"action" : {
+							"type" : "do_forward",
+							"data" : {
+								"port" : { "value" : "v0.0" }
+							}
+						}
+					},
+					{
+						"name" : "rule_1",
+						"match" : {
+							"standard_metadata.ingress_port" : { "value" : "v0.1" }
+						},
+						"action" : {
+							"type" : "do_forward",
+							"data" : {
+								"port" : { "value" : "v0.2" }
+							}
+						}
+					}
+				]
+			},
+			"update_cm" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_update_cm" }
+				}
+			},
+			"find_min1" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_find_min1" }
+				}
+			},
+			"find_min2" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_find_min2" }
+				}
+			},
+			"find_min3" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_find_min3" }
+				}
+			},
+			"read_hh" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_read_hh" }
+				}
+			},
+			"update_hh" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_update_hh" }
+				}
+			},
+			"hh_encap" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_hh_encap" }
+				}
+			},
+			"start_tstamp" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_start_tstamp" }
+				}
+			},
+			"end_tstamp" : {
+				"default_rule" : {
+					"name" : "default",
+					"action" : { "type" : "do_end_tstamp" }
+				}
+			}
+		}
+	
+}
